@@ -16,6 +16,13 @@ import Aboutimage from "./AboutImage.jpg"
 import Contactimg from "./Contact.jpg"
 
 
+// Brands Logos & Images imported here 
+
+import Devhubs from "./Brands/Devhubs.png"
+import ParmarMusic from "./Brands/ParmarMusic.png"
+import JalaXerox from "./Brands/JalaXerox.png"
+import InfotechLogo from "./Brands/Infotech.png"
+import Zyntronix from "./Brands/Zyntronix.png"
 
 
 
@@ -25,4 +32,10 @@ import Contactimg from "./Contact.jpg"
 
 
 
-export { Code , Coderimage, ColorGuide , Designer , Designlaptop , Developerimg , GraphicsDesign, Logo , EditingImage , PhotoshopEditing , Posterimg , UiUximg , Uidesign , Backgroundimage , Contactimg , Aboutimage }
+
+export { Code , Coderimage, ColorGuide , Designer , Designlaptop , Developerimg , GraphicsDesign, Logo , EditingImage , PhotoshopEditing , Posterimg , UiUximg , Uidesign , Backgroundimage , Contactimg , Aboutimage 
+, Devhubs , ParmarMusic , JalaXerox , InfotechLogo , Zyntronix
+
+
+
+}

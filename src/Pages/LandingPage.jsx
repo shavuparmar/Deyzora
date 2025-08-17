@@ -1,56 +1,65 @@
 import { useState } from "react";
 import FooterSection from "../Common/FooterSection";
 import Navbar from "../Common/NavBar";
-import { Aboutimage, Contactimg, PhotoshopEditing } from "../assets/Images";
+import {
+  Aboutimage,
+  Contactimg,
+  InfotechLogo,
+  JalaXerox,
+  ParmarMusic,
+  PhotoshopEditing,
+  Zyntronix,
+} from "../assets/Images";
 
 import { Code } from "../assets/Images";
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import { FaArrowRight } from "react-icons/fa";
+import { Logo } from "../assets/Images"; // Replace with your images
 
 export default function LandingPage() {
   const ilertmssg = () => {
     alert(`This site is undercontruction try to react out Developer`);
   };
   const stats = [
-    { label: "Projects Completed", value: "120+" },
-    { label: "Happy Clients", value: "80+" },
-    { label: "Awards Won", value: "15+" },
-    { label: "Years of Experience", value: "5+" },
+    { label: "Projects Completed", value: "8+" },
+    { label: "Happy Clients", value: "12+" },
+    // { label: "Awards Won", value: "+" },
+    { label: "Years of Experience", value: "1+" },
   ];
 
   const projects = [
-    { img: Code, title: "Website Redesign", desc: "Modern UI/UX design" },
-    { img: Code, title: "E-commerce App", desc: "User-friendly online store" },
-    { img: Code, title: "Social Media Creatives", desc: "Branding & graphics" },
-    { img: Code, title: "Social Media Creatives", desc: "Branding & graphics" },
-    { img: Code, title: "Social Media Creatives", desc: "Branding & graphics" },
     {
       img: Code,
-      title: "Landing Page Design",
-      desc: "Conversion-focused layout",
+      title: "Website Redesign",
+      desc: "Modern UI/UX design",
+      link: "https://shavuparmar.vercel.app",
     },
+
     // Add more projects as needed
   ];
 
   const testimonials = [
     {
-      name: "John Doe",
-      role: "CEO, Company A",
+      name: "Nitin Shukla",
+      role: "",
       text: "Deyzora transformed our website into a stunning, user-friendly experience. Highly recommended!",
     },
     {
-      name: "Jane Smith",
+      name: "Ved Mehta",
       role: "Marketing Manager, Company B",
       text: "Their team is creative, professional, and efficient. Our social media campaigns improved drastically.",
     },
     {
-      name: "Mike Johnson",
+      name: "Utshav Shukla",
       role: "Founder, Startup X",
       text: "Amazing design skills and attention to detail. The Deyzora team delivered above our expectations!",
     },
     // Add more testimonials as needed
   ];
-  const loopTestimonials = [...testimonials, ...testimonials];
+  const loopTestimonials = [...testimonials];
   const faqs = [
     {
       question: "What services does Deyzora provide?",
@@ -73,6 +82,23 @@ export default function LandingPage() {
         "The timeline depends on the project size and complexity, but we always strive for timely delivery while maintaining quality.",
     },
   ];
+  const services = [
+    {
+      img: Logo,
+      title: "Web Design",
+      desc: "Modern and responsive UI/UX designs",
+    },
+    {
+      img: Logo,
+      title: "Web Development",
+      desc: "Clean and scalable code for your projects",
+    },
+    {
+      img: Logo,
+      title: "UI Design",
+      desc: "Increase your website traffic organically",
+    },
+  ];
 
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -84,7 +110,7 @@ export default function LandingPage() {
     alert("Form submitted! We'll get back to you soon.");
   };
 
-  const brands = [Code, Code, Code, Code, Code, Code, Code];
+  const brands = [ParmarMusic, Zyntronix, JalaXerox, InfotechLogo];
 
   return (
     <>
@@ -162,10 +188,10 @@ export default function LandingPage() {
       >
         <motion.div
           className="flex items-center  "
-          animate={{ x: ["100%", "-100%"] }}
+          animate={{ x: ["300%", "-100%"] }}
           transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
         >
-          {[...brands, ...brands].map((logo, index) => (
+          {[...brands].map((logo, index) => (
             <div
               key={index}
               style={{
@@ -179,12 +205,57 @@ export default function LandingPage() {
               <img
                 src={logo}
                 alt={`brand-${index}`}
-                style={{ height: "80px", objectFit: "contain" }}
+                style={{
+                  height: "92px",
+                  width: "auto",
+                  objectFit: "contain",
+                  padding: "8px",
+                  filter: "grayscale(20%)", // optional: to balance different colors
+                  maxWidth: "160px", // prevents extra wide logos from breaking layout
+                }}
               />
             </div>
           ))}
         </motion.div>
       </div>
+      <div className="">
+        <div className="p-6">
+          <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
+
+          {/* Grid for large screens, scrollable carousel on small screens */}
+          <div className="flex justify-center p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl shadow hover:shadow-lg transition-shadow duration-200 p-4 flex flex-col items-center text-center"
+                >
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-32 h-32 object-cover rounded-md mb-2"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="mt-1 text-gray-600">{service.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* More Services Button */}
+          <div className="flex justify-center mt-8">
+            <Link
+              to="/services"
+              className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium"
+            >
+              More Services <FaArrowRight className="ml-2" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="">
         <div className="py-20 px-6 ">
           {/* Section Header */}
@@ -196,21 +267,29 @@ export default function LandingPage() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 p-4">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl  shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+                className=" rounded-lg shadow hover:shadow-lg transition-shadow-2xl duration-300 p-4 flex flex-col items-center text-center"
               >
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-44 object-cover"
+                  className="w-48 h-48 object-cover rounded-md mb-4"
                 />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <p className="mt-2 text-gray-500">{project.desc}</p>
-                </div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{project.desc}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                >
+                  Visit
+                </a>
               </div>
             ))}
           </div>
@@ -241,11 +320,15 @@ export default function LandingPage() {
             Empower brands with innovative, visually compelling, and
             user-friendly digital experiences.
           </p>
-          <button
-            className="cursor-pointer w-full sm:w-auto px-6 py-2 border-2 hover:bg-blue-800 bg-blue-950 text-white font-bold text-lg sm:text-xl rounded-lg"
-            onClick={ilertmssg}
-          >
-            Read More
+          <button>
+            {" "}
+            <Link
+              to={"/about"}
+              className="cursor-pointer w-full sm:w-auto px-6 py-2 border-2 hover:bg-blue-800 bg-blue-950 text-white font-bold text-lg sm:text-xl rounded-lg"
+            >
+              {" "}
+              Read More
+            </Link>{" "}
           </button>
         </div>
       </div>
@@ -262,26 +345,27 @@ export default function LandingPage() {
 
           {/* Carousel */}
           <div className="overflow-hidden">
-  <motion.div
-    className="flex gap-3 sm:gap-4 md:gap-6"
-    animate={{ x: ["100%", "-200%"] }}
-    transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
-  >
-    {loopTestimonials.map((testimonial, index) => (
-      <motion.div
-        key={index}
-        className="w-60 sm:min-w-[220px] md:min-w-[300px] lg:min-w-[400px] bg-white border p-3 sm:p-4 md:p-6 rounded-xl shadow-lg flex-shrink-0"
-      >
-        <p className="text-gray-700 mb-2 text-xs sm:text-sm md:text-base">
-          {testimonial.text}
-        </p>
-        <h3 className="font-bold text-xs sm:text-sm md:text-lg">{testimonial.name}</h3>
-        {/* <p className="text-gray-500 text-xs sm:text-sm md:text-base">{testimonial.role}</p> */}
-      </motion.div>
-    ))}
-  </motion.div>
-</div>
-
+            <motion.div
+              className="flex gap-3 sm:gap-4 md:gap-6"
+              animate={{ x: ["100%", "-200%"] }}
+              transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
+            >
+              {loopTestimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  className="w-60 sm:min-w-[220px] md:min-w-[300px] lg:min-w-[400px] bg-white border p-3 sm:p-4 md:p-6 rounded-xl shadow-lg flex-shrink-0"
+                >
+                  <p className="text-gray-700 mb-2 text-xs sm:text-sm md:text-base">
+                    {testimonial.text}
+                  </p>
+                  <h3 className="font-bold text-xs sm:text-sm md:text-lg">
+                    {testimonial.name}
+                  </h3>
+                  {/* <p className="text-gray-500 text-xs sm:text-sm md:text-base">{testimonial.role}</p> */}
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
 

@@ -47,7 +47,7 @@ export default function ServicePage() {
   return (
     <>
     <NavBar/>
-    <div className="py-20 px-6 lg:px-20 bg-gray-50">
+    <div className="py-20 px-6 lg:px-20  mb-10">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-blue-950">
           Our Services

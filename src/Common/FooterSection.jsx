@@ -18,16 +18,29 @@ export default function FooterSection() {
             digital solutions to help brands grow online.
           </p>
           <div className="flex mt-4 gap-4 text-gray-900">
-            <a href="#" className="hover:text-white">
+            <a
+              href="https://www.facebook.com/profile.php?id=61579359294712"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="hover:text-white"
+            >
               <FaFacebookF />
             </a>
-            <a href="#" className="hover:text-white">
+            <a href="" className="hover:text-white">
               <FaTwitter />
             </a>
-            <a href="#" className="hover:text-white">
+            <a
+              href="https://www.linkedin.com/company/deyzora/?viewAsMember=true"
+              target="_blank"
+              className="hover:text-white"
+            >
               <FaLinkedinIn />
             </a>
-            <a href="#" className="hover:text-white">
+            <a
+              href="https://instagram.com/deyzoraofficial"
+              target="_blank"
+              className="hover:text-white"
+            >
               <FaInstagram />
             </a>
           </div>
@@ -38,27 +51,27 @@ export default function FooterSection() {
           <h3 className="text-xl font-bold mb-4 text-black">Quick Links</h3>
           <ul className="space-y-2 text-gray-900">
             <li>
-              <a href="#" className="hover:text-blue-700">
+              <a href="/" className="hover:text-blue-700">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-blue-700">
+              <a href="/about" className="hover:text-blue-700">
                 About
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-blue-700">
+              <a href="/services" className="hover:text-blue-700">
                 Services
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-blue-700">
+              <a href="/projects" className="hover:text-blue-700">
                 Projects
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-blue-700">
+              <a href="/contact" className="hover:text-blue-700">
                 Contact
               </a>
             </li>
@@ -70,18 +83,23 @@ export default function FooterSection() {
           <h3 className="text-xl font-bold mb-4 text-black">Policies</h3>
           <ul className="space-y-2 text-gray-900">
             <li>
-              <a href="#" className="hover:text-red-600">
+              <a href="/privacy" className="hover:text-red-600">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-red-600">
+              <a href="/termsandcondition" className="hover:text-red-600">
                 Terms & Conditions
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-red-600">
+              <a href="/faq" className="hover:text-red-600">
                 FAQ
+              </a>
+            </li>
+            <li>
+              <a href="/disclaimer" className="hover:text-red-600">
+                Disclaimer
               </a>
             </li>
             <li>
@@ -98,9 +116,9 @@ export default function FooterSection() {
           <p className="text-gray-900 mb-2">
             Email: shavuparmar63522@gmail.com
           </p>
-          <p className="text-gray-900 mb-2">Phone: +91 12345 67890</p>
+          <p className="text-gray-900 mb-2">Phone: +91 98799 96695</p>
           <p className="text-gray-900">
-            Address: 123, Your Street, City, Country
+            Kim Main Road Rangkurpa 2 Near police station
           </p>
         </div>
       </div>
