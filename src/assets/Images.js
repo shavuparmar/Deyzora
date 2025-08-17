@@ -21,7 +21,7 @@ import Contactimg from "./Contact.jpg"
 import Devhubs from "./Brands/Devhubs.png"
 import ParmarMusic from "./Brands/ParmarMusic.png"
 import JalaXerox from "./Brands/JalaXerox.png"
-import InfotechLogo from "./Brands/infotech.png"
+import Parmarin from "./Brands/infotech.png"
 import Zyntronix from "./Brands/Zyntronix.png"
 
 
@@ -34,7 +34,7 @@ import Zyntronix from "./Brands/Zyntronix.png"
 
 
 export { Code , Coderimage, ColorGuide , Designer , Designlaptop , Developerimg , GraphicsDesign, Logo , EditingImage , PhotoshopEditing , Posterimg , UiUximg , Uidesign , Backgroundimage , Contactimg , Aboutimage 
-, Devhubs , ParmarMusic , JalaXerox , InfotechLogo , Zyntronix
+, Devhubs , ParmarMusic , JalaXerox  , Zyntronix , Parmarin
 
 
 
