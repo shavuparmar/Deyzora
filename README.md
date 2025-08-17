@@ -1,13 +1,28 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # Deyzora
+
+**Deyzora** is a technology solutions company focused on delivering modern web design, development, and digital services. We aim to empower users and businesses with innovative solutions and user-friendly interfaces.
+
+---
+
+## Services
+- Web Design & UI/UX
+- Web Development
+- SEO Optimization
+- Social Media Marketing
+
+---
+
+## Social Media
+- **Facebook:** [https://www.facebook.com/profile.php?id=61579359294712](https://www.facebook.com/profile.php?id=61579359294712)  
+- **Instagram:** [https://www.instagram.com/deyzora](https://www.instagram.com/deyzora)  
+- **LinkedIn:** [https://www.linkedin.com/company/deyzora](https://www.linkedin.com/company/deyzora)  
+- **Twitter/X:** [https://twitter.com/deyzora](https://twitter.com/deyzora)  
+
+---
+
+## Contact
+For inquiries or collaborations, feel free to reach out via our social media or email.
+
+---
+
+*This README provides a quick overview of Deyzora and our online presence.*
