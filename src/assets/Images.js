@@ -21,7 +21,7 @@ import Contactimg from "./Contact.jpg"
 import Devhubs from "./Brands/Devhubs.png"
 import ParmarMusic from "./Brands/ParmarMusic.png"
 import JalaXerox from "./Brands/JalaXerox.png"
-import InfotechLogo from "./Brands/Infotech.png"
+import InfotechLogo from "./Brands/infotech.png"
 import Zyntronix from "./Brands/Zyntronix.png"
 
 
