@@ -16,12 +16,11 @@ import Aboutimage from "./AboutImage.jpg";
 import Contactimg from "./Contact.jpg";
 
 // Brands Logos & Images imported here
-
-import Devhubs from "./Devhubs.png";
-import ParmarMusic from "./ParmarMusic.png";
-import JalaXerox from "./JalaXerox.png";
-import Parmarin from "./infotech.png";
-import Zyntronix from "./Zyntronix.png";
+import Devhubs from "./Devhubs.png"
+import Parmarin from "./infotechLogo.png"
+import Zyntronix from "./Zyntronix.png"
+import ParmarMusic from "./ParmarMusic.png"
+import JalaXerox from "./JalaXerox.png"
 
 export {
   Code,
