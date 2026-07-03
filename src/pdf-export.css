@@ -1,0 +1,62 @@
+/* pdf-export.css
+ * This file replaces Tailwind CSS v4 color utilities strictly with Hex/RGB values 
+ * to ensure older canvas libraries (html2canvas) do not crash when encountering oklch() spaces.
+ */
+
+ .pdf-export-mode {
+    background-color: transparent !important;
+ }
+ 
+ .pdf-bg-white { background-color: #ffffff !important; }
+ .pdf-bg-gray-50 { background-color: #f9fafb !important; }
+ .pdf-bg-gray-100 { background-color: #f3f4f6 !important; }
+ .pdf-bg-indigo-600 { background-color: #4f46e5 !important; }
+ 
+ .pdf-text-black { color: #000000 !important; }
+ .pdf-text-gray-900 { color: #111827 !important; }
+ .pdf-text-gray-700 { color: #374151 !important; }
+ .pdf-text-gray-600 { color: #4b5563 !important; }
+ .pdf-text-gray-500 { color: #6b7280 !important; }
+ .pdf-text-gray-400 { color: #9ca3af !important; }
+ .pdf-text-gray-300 { color: #d1d5db !important; }
+ .pdf-text-indigo-500 { color: #6366f1 !important; }
+ .pdf-text-indigo-600 { color: #4f46e5 !important; }
+ .pdf-text-indigo-700 { color: #4338ca !important; }
+ .pdf-text-emerald-600 { color: #059669 !important; }
+ .pdf-text-white { color: #ffffff !important; }
+ 
+ .pdf-border-gray-100 { border-color: #f3f4f6 !important; }
+ .pdf-border-gray-200 { border-color: #e5e7eb !important; }
+ .pdf-border-gray-400 { border-color: #9ca3af !important; }
+ .pdf-border-gray-900 { border-color: #111827 !important; }
+ .pdf-border-indigo-600 { border-color: #4f46e5 !important; }
+ 
+ .pdf-border-t { border-top-width: 1px !important; }
+ .pdf-border-b { border-bottom-width: 1px !important; }
+ .pdf-border-t-2 { border-top-width: 2px !important; }
+ .pdf-border-b-2 { border-bottom-width: 2px !important; }
+ 
+ /* Strip problematic styles */
+ .pdf-safe * {
+    backdrop-filter: none !important;
+    filter: none !important;
+ }
+
+ @media print {
+    .pdf-page {
+        page-break-before: always;
+        break-before: page;
+    }
+    .pdf-page:first-child {
+        page-break-before: avoid;
+        break-before: auto;
+    }
+ }
+
+ /* Standard class for html2pdf which parses CSS */
+ .pdf-page {
+     page-break-before: always;
+ }
+ .pdf-page:first-child {
+     page-break-before: avoid;
+ }
