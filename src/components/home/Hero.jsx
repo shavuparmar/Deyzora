@@ -18,7 +18,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-[var(--color-border-subtle)] text-[var(--color-text-gray)] text-sm font-medium mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
-              Premium Digital Agency
+              Top Web Design Agency in Surat
             </motion.div>
 
             <motion.h1 
@@ -37,7 +37,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg lg:text-xl text-[var(--color-text-gray)] max-w-lg mb-10 leading-relaxed"
             >
-              Deyzora Infotech engineers high-performance websites, scalable web applications, and premium brand identities for forward-thinking companies.
+              Deyzora Infotech engineers high-performance websites, scalable web applications, and premium brand identities for forward-thinking businesses across Surat and South Gujarat.
             </motion.p>
 
             <motion.div 

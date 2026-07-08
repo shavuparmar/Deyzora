@@ -5,10 +5,10 @@ import { Card } from '../ui/Card';
 const connectLinks = [
   {
     title: 'WhatsApp',
-    value: '+91 9879009603',
+    value: '+91 9879001603',
     icon: MessageCircle,
     color: 'text-green-500',
-    link: 'https://wa.me/919879009603',
+    link: 'https://wa.me/919879001603',
     bg: 'bg-green-500/10 border-green-500/20'
   },
   {
@@ -89,7 +89,7 @@ export default function Location() {
                  </div>
                  <div>
                    <h4 className="text-sm font-bold text-[var(--color-text-gray)] uppercase tracking-wider mb-1">Direct Line</h4>
-                   <a href="tel:+919879009603" className="text-lg font-medium text-white hover:text-[var(--color-primary)] transition-colors">+91 9879009603</a>
+                   <a href="tel:+919879001603" className="text-lg font-medium text-white hover:text-[var(--color-primary)] transition-colors">+91 9879001603</a>
                  </div>
               </div>
 

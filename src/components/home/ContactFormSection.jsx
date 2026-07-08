@@ -30,7 +30,7 @@ export default function ContactFormSection() {
 
             <div className="flex flex-col gap-8">
               {[
-                { icon: Phone, title: 'Phone', content: '+91 9879009603', link: 'tel:+919879009603' },
+                { icon: Phone, title: 'Phone', content: '+91 9879001603', link: 'tel:+919879001603' },
                 { icon: Mail, title: 'Email', content: 'deyzorainfotech@gmail.com', link: 'mailto:deyzorainfotech@gmail.com' },
                 { icon: MapPin, title: 'Location', content: 'Surat, Gujarat, India', link: '#' },
               ].map((item, i) => (
@@ -82,7 +82,7 @@ export default function ContactFormSection() {
                   <input 
                     {...register("phone")}
                     className="w-full bg-[var(--color-bg-dark)] border border-[var(--color-border-subtle)] rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[var(--color-primary)] transition-colors"
-                    placeholder="+91 9879009603"
+                    placeholder="+91 9879001603"
                   />
                 </div>
                 <div>

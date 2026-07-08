@@ -9,13 +9,13 @@ export default function AboutPreview() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold font-poppins text-white mb-6 tracking-tight">
-              We engineer digital excellence.
+              We engineer digital excellence in Surat.
             </h2>
             <p className="text-lg text-[var(--color-text-gray)] mb-6 leading-relaxed">
-              Based in India, Deyzora Infotech is a premium digital agency operating at the intersection of aesthetic design and robust software engineering.
+              Based in Surat, Deyzora Infotech is a premium digital agency operating at the intersection of aesthetic design and robust software engineering.
             </p>
             <p className="text-lg text-[var(--color-text-gray)] mb-10 leading-relaxed">
-              We partner with forward-thinking startups and local businesses to build scalable web applications, compelling brand identities, and high-converting platforms that command authority in the digital space.
+              We partner with forward-thinking startups, local businesses, and SMEs across Bharuch, Navsari, Valsad, and South Gujarat to build scalable web applications, compelling brand identities, and high-converting platforms that command authority in the digital space.
             </p>
             <Button to="/about" variant="outline" className="group">
               Read Our Story

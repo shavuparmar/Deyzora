@@ -42,10 +42,10 @@ export default function Services() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-bold font-poppins text-white mb-6 tracking-tight">
-              Our Services
+              Our Services in Surat & Gujarat
             </h2>
             <p className="text-xl text-[var(--color-text-gray)] leading-relaxed">
-              We focus exclusively on what we do best. By narrowing our scope, we deliver unparalleled quality in our core competencies.
+              We focus exclusively on what we do best. By narrowing our scope, we deliver unparalleled quality in our core web development and design competencies to local and global clients.
             </p>
           </div>
           <div className="shrink-0">

@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export default function SEO({ 
-  title = "Deyzora Infotech | Premium Website Development in Surat",
-  description = "We engineer high-performance websites, web applications, and brand identities that drive real business growth. Based in Surat, built for the world.",
-  keywords = "Website Development Surat, Web Design Company Surat, React Development, SEO Services Gujarat",
+  title = "Deyzora Infotech | Best Website Development Company in Surat",
+  description = "Top-rated Web Design & Development Company in Surat, Gujarat. We engineer high-performance websites, custom web apps, and React JS solutions for growing businesses.",
+  keywords = "Website Development Company in Surat, Web Development Company in Surat, Best Website Developer in Surat, Website Designer in Surat, Web Design Company in Surat, WordPress Development in Surat, React JS Development in Surat, Custom Web Application Development in Surat, Graphic Design Services in Surat, Logo Design Company in Surat, Affordable Website Development in Surat, Business Website Development in Gujarat, Website Development Near Me, Deyzora Infotech Surat",
   image = "https://deyzorainfotech.com/og-image.jpg",
   url = "https://deyzorainfotech.com",
   type = "website"
@@ -20,7 +20,7 @@ export default function SEO({
     "description": description,
     "url": url,
     "telephone": "+919879001603",
-    "email": "hello@deyzorainfotech.com",
+    "email": "deyzorainfotech@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "413, Milestone Canal Road",
@@ -29,6 +29,11 @@ export default function SEO({
       "postalCode": "395010",
       "addressCountry": "IN"
     },
+    "areaServed": [
+      "Surat", "Kim", "Bharuch", "Ankleshwar", "Bardoli", 
+      "Navsari", "Valsad", "Kosamba", "Olpad", "Kamrej", 
+      "Sachin", "Palsana", "Gujarat"
+    ],
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 21.1702, // Approximate Surat latitude

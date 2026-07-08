@@ -57,7 +57,7 @@ export default function Footer() {
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <a 
-              href="https://wa.me/919879009603"
+              href="https://wa.me/919879001603"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-4 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold text-sm hover:bg-[#25D366]/20 transition-colors border border-[#25D366]/20 w-full sm:w-auto"
@@ -141,11 +141,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+919879009603" className="flex items-center gap-4 text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium group">
+                <a href="tel:+919879001603" className="flex items-center gap-4 text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium group">
                   <span className="w-10 h-10 rounded-lg glass-card flex items-center justify-center group-hover:border-[var(--color-primary)] transition-colors">
                     <Phone className="w-4 h-4" />
                   </span>
-                  +91 9879009603
+                  +91 9879001603
                 </a>
               </li>
             </ul>
