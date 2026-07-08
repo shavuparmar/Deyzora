@@ -9,30 +9,35 @@ const __dirname = path.dirname(__filename);
 // Load env variables
 dotenv.config();
 
-const SITE_URL = process.env.VITE_SITE_URL || 'https://deyzora.online';
+const SITE_URL = process.env.VITE_SITE_URL || 'https://deyzorainfotech.com';
 
-// Read constants.js to get dynamic services
-// We can simply read it as text and extract the IDs via regex since it's a simple JS file
-const constantsPath = path.join(__dirname, 'src', 'data', 'constants.js');
-const constantsContent = fs.readFileSync(constantsPath, 'utf8');
+const serviceIds = [
+  'website-development',
+  'wordpress-development',
+  'graphic-design',
+  'logo-design'
+];
 
-// Simple regex to extract `id: "some-service"`
-const idRegex = /id:\s*["']([^"']+)["']/g;
-const serviceIds = [];
-let match;
-while ((match = idRegex.exec(constantsContent)) !== null) {
-  serviceIds.push(match[1]);
-}
+const blogIds = [
+  'future-of-web-development-2026',
+  'why-business-needs-custom-website',
+  'mastering-ui-ux-design',
+  'optimizing-wordpress-speed',
+  'psychology-of-color-logo-design',
+  'react-server-components-explained'
+];
 
 const staticRoutes = [
   '/',
   '/about',
+  '/services',
   '/portfolio',
   '/pricing',
+  '/blog',
   '/contact',
   '/lets-talk',
   '/privacy-policy',
-  '/terms-and-conditions',
+  '/terms-conditions',
   '/refund-policy',
   '/cancellation-policy',
   '/shipping-policy',
@@ -40,14 +45,26 @@ const staticRoutes = [
   '/disclaimer',
   '/accessibility',
   '/security-policy',
+  '/dmca-policy',
+  '/copyright-policy',
+  '/acceptable-use-policy',
+  '/sla',
+  '/intellectual-property',
+  '/grievance-policy',
   '/sitemap'
 ];
 
-const allRoutes = [...staticRoutes, ...serviceIds.map(id => `/services/${id}`)];
+const allRoutes = [
+  ...staticRoutes, 
+  ...serviceIds.map(id => `/services/${id}`),
+  ...blogIds.map(id => `/blog/${id}`)
+];
+
+const uniqueRoutes = [...new Set(allRoutes)];
 
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allRoutes.map(route => `
+${uniqueRoutes.map(route => `
   <url>
     <loc>${SITE_URL}${route}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>

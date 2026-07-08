@@ -1,58 +1,44 @@
-import { useEffect } from'react';
-import SEO from'../components/SEO';
-import { Section, Container } from'../components/ui/LayoutComponents';
-import ContactHero from'../components/contact/ContactHero';
-import QuickCards from'../components/contact/QuickCards';
-import SimpleContactForm from'../components/contact/SimpleContactForm';
-import InfoPanel from'../components/contact/InfoPanel';
-import WhyChooseUs from'../components/contact/WhyChooseUs';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import ContactFormSection from '../components/home/ContactFormSection';
+import Location from '../components/home/Location';
+import FAQ from '../components/home/FAQ';
+import { Container } from '../components/ui/Container';
 
-const ContactPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Deyzora Infotech",
-    "image": "https://deyzora.online/vite.svg",
-    "telephone": "+91-9879001603",
-    "email": "deyzorainfotech@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
-    },
-    "url": "https://deyzora.online/contact"
-  };
-
+export default function ContactPage() {
   return (
-    <div className="pt-32 bg-[var(--color-background)] min-h-screen">
-      <SEO 
-        title="Contact Us | Deyzora Infotech" 
-        description="Get in touch with Deyzora Infotech for web development, app development, and digital marketing services." 
-        schema={contactSchema}
-      />
-      
-      <ContactHero />
-      <QuickCards />
-      
-      <Section className="mb-24">
-        <Container className="max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="w-full lg:w-2/3">
-              <SimpleContactForm />
-            </div>
-            <div className="w-full lg:w-1/3">
-              <InfoPanel />
-            </div>
-          </div>
-        </Container>
-      </Section>
+    <>
+      <Helmet>
+        <title>Contact Us | Deyzora Infotech</title>
+        <meta name="description" content="Get in touch with Deyzora Infotech for premium digital solutions. We'd love to hear from you." />
+      </Helmet>
 
-      <WhyChooseUs />
-    </div>
+      <main className="pt-24 bg-[var(--color-bg-dark)]">
+        {/* Page Hero */}
+        <section className="section-padding border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-surface-light)]">
+          <Container className="text-center max-w-4xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins text-white mb-6 tracking-tight"
+            >
+              Contact <span className="text-[var(--color-primary)]">Us.</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-[var(--color-text-gray)] leading-relaxed max-w-2xl mx-auto"
+            >
+              Have a project in mind? We'd love to help you bring it to life. Reach out to our team today.
+            </motion.p>
+          </Container>
+        </section>
+
+        <ContactFormSection />
+        <Location />
+        <FAQ />
+      </main>
+    </>
   );
-};
-
-export default ContactPage;
+}

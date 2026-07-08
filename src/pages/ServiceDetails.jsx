@@ -1,186 +1,125 @@
-import { useEffect, useMemo } from'react';
-import { useParams, Navigate, Link } from'react-router-dom';
-import { motion } from'framer-motion';
-import { Check, ArrowRight } from'lucide-react';
-import { SERVICES } from'../data/constants';
-import SEO from'../components/SEO';
-import { Button } from'../components/ui/Button';
-import { Card } from'../components/ui/Card';
-import { Section, Container } from'../components/ui/LayoutComponents';
-import ContactForm from'../components/sections/ContactForm';
-import FAQ from'../components/sections/FAQ';
+import { useParams, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { Monitor, Layout, PenTool, Image as ImageIcon, CheckCircle2 } from 'lucide-react';
+import ContactCTA from '../components/home/ContactCTA';
+import { Container } from '../components/ui/Container';
+import { Card } from '../components/ui/Card';
 
-const ServiceDetails = () => {
-  const { slug } = useParams();
-  const service = useMemo(() => SERVICES.find(s => s.id === slug), [slug]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-
-  if (!service) {
-    return <Navigate to="/404" replace />;
+const serviceData = {
+  'website-development': {
+    title: 'Website Development',
+    icon: Monitor,
+    description: 'We build high-performance, scalable, and secure websites tailored to your business goals. Utilizing modern stacks like React, Next.js, and Node, we ensure your digital presence is robust and future-proof.',
+    benefits: ['Blazing Fast Performance', 'Responsive on all devices', 'SEO Optimized Architecture', 'Scalable Backend'],
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200'
+  },
+  'wordpress-development': {
+    title: 'WordPress Development',
+    icon: Layout,
+    description: 'Leverage the world\'s most popular CMS. We create custom themes, develop plugins, and optimize your WordPress site for speed and security, providing you with a platform that is easy to manage and scales with your growth.',
+    benefits: ['Custom Theme Design', 'Plugin Integration', 'E-Commerce (WooCommerce)', 'Advanced Security Measures'],
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200'
+  },
+  'graphic-design': {
+    title: 'Graphic Design',
+    icon: PenTool,
+    description: 'Visual communication is key. Our graphic design services ensure your brand message is conveyed clearly and beautifully across all channels. From marketing collateral to social media graphics, we create visuals that captivate.',
+    benefits: ['Social Media Kits', 'Marketing Materials', 'Brand Guidelines', 'UI/UX Prototypes'],
+    image: 'https://images.unsplash.com/photo-1626785773579-c10ce7663e5e?auto=format&fit=crop&q=80&w=1200'
+  },
+  'logo-design': {
+    title: 'Logo Design',
+    icon: ImageIcon,
+    description: 'Your logo is the face of your business. We design timeless, memorable, and versatile logos that establish a strong brand identity and leave a lasting impression on your audience.',
+    benefits: ['Multiple Concepts', 'Vector Formats', 'Brand Identity Integration', 'Full Copyright Ownership'],
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1200'
   }
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.title,
-    "description": service.description,
-    "provider": {
-      "@type": "Organization",
-      "name": "Deyzora Infotech",
-      "url": "https://deyzora.online/"
-    },
-    "areaServed": "IN",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": service.title + " Services",
-      "itemListElement": service.features.map((feature, index) => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": feature
-        },
-        "position": index + 1
-      }))
-    }
-  };
-
-  return (
-    <div className="pt-24 bg-[var(--color-background)] min-h-screen">
-      <SEO 
-        title={`${service.title} | Deyzora Infotech`} 
-        description={service.description} 
-        schema={serviceSchema}
-      />
-      
-      {/* Hero Section */}
-      <Section className="relative pt-20 pb-24 border-b border-[var(--color-border)] overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-accent)]/5 blur-[150px] pointer-events-none" />
-        <Container className="relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted-foreground)] text-sm font-medium mb-6">
-            Services / {service.title}
-          </div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-[var(--color-foreground)]"
-          >
-            {service.title}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-[var(--color-muted-foreground)] max-w-2xl mx-auto mb-10"
-          >
-            {service.description}
-          </motion.p>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
-          >
-            <Link to="/lets-talk" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-full">
-              <Button variant="primary">Start Your Project</Button>
-            </Link>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Overview & Benefits */}
-      <Section className="py-24">
-        <Container>
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--color-foreground)] mb-6">Overview</h2>
-              <p className="text-[var(--color-muted-foreground)] leading-relaxed text-lg mb-8">
-                {service.overview}
-              </p>
-              <div className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-                <h3 className="font-bold text-[var(--color-foreground)] mb-2">Ideal For</h3>
-                <p className="text-[var(--color-muted-foreground)]">{service.targetAudience}</p>
-              </div>
-            </div>
-            <Card glass>
-              <h3 className="text-2xl font-bold text-[var(--color-foreground)] mb-6">Business Benefits</h3>
-              <ul className="space-y-4">
-                {service.benefits.map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-[var(--color-accent)]" />
-                    </div>
-                    <span className="text-[var(--color-foreground)]/90 font-medium">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Features & Tech Stack */}
-      <Section className="py-24 bg-[var(--color-surface)]/30 border-y border-[var(--color-border)]">
-        <Container>
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--color-foreground)] mb-8">Core Features</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {service.features.map((feature, idx) => (
-                  <div key={idx} className="p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] flex items-center gap-3 hover:border-[var(--color-accent)]/50 transition-colors">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-muted-foreground)]/50" />
-                    <span className="text-[var(--color-foreground)]/90 font-medium">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-[var(--color-foreground)] mb-8">Technology Stack</h2>
-              <div className="flex flex-wrap gap-4">
-                {service.techStack.map((tech, idx) => (
-                  <div key={idx} className="px-6 py-3 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-foreground)] font-bold shadow-lg">
-                    {tech}
-                  </div>
-                ))}
-              </div>
-              
-              <Card glass className="mt-12 p-8 border-[var(--color-accent)]/30 relative overflow-hidden">
-                <div className="absolute right-0 top-0 w-32 h-32 bg-[var(--color-accent)]/20 blur-[50px]" />
-                <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-2">Pricing Guideline</h3>
-                <p className="text-[var(--color-muted-foreground)] mb-6">{service.pricing}</p>
-                <Link to="/pricing" className="text-[var(--color-accent)] font-bold flex items-center gap-2 hover:gap-3 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded px-1 -mx-1 w-max">
-                  View Full Pricing <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Card>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Custom FAQ for this service */}
-      {service.faqs && (
-        <Section className="py-24">
-          <Container className="max-w-3xl">
-            <h2 className="text-3xl font-bold text-[var(--color-foreground)] mb-10 text-center">Specific Questions</h2>
-            <div className="space-y-4">
-              {service.faqs.map((faq, idx) => (
-                <div key={idx} className="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent)]/50 transition-colors">
-                  <h3 className="font-bold text-[var(--color-foreground)] mb-2 text-lg">{faq.q}</h3>
-                  <p className="text-[var(--color-muted-foreground)]">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      {/* Global Sections */}
-      <FAQ />
-      <ContactForm />
-    </div>
-  );
 };
 
-export default ServiceDetails;
+export default function ServiceDetails() {
+  const { slug } = useParams();
+  const service = serviceData[slug];
+
+  if (!service) {
+    return <Navigate to="/services" replace />;
+  }
+
+  const Icon = service.icon;
+
+  return (
+    <>
+      <Helmet>
+        <title>{service.title} | Deyzora Infotech</title>
+        <meta name="description" content={service.description} />
+      </Helmet>
+
+      <main className="pt-24 bg-[var(--color-bg-dark)]">
+        {/* Hero */}
+        <section className="section-padding border-b border-[var(--color-border-subtle)]">
+          <Container>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="w-16 h-16 rounded-xl bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] flex items-center justify-center mb-8"
+                >
+                  <Icon className="w-8 h-8 text-white" />
+                </motion.div>
+                
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-white mb-6 tracking-tight leading-tight"
+                >
+                  {service.title}
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="text-lg text-[var(--color-text-gray)] mb-8 leading-relaxed max-w-lg"
+                >
+                  {service.description}
+                </motion.p>
+                
+                <motion.ul 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex flex-col gap-4"
+                >
+                  {service.benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 shrink-0 text-white/50" />
+                      <span className="text-[var(--color-text-gray)] text-lg">{benefit}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="overflow-hidden border-[var(--color-border-subtle)]">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-auto aspect-square md:aspect-[4/3] object-cover"
+                  />
+                </Card>
+              </motion.div>
+            </div>
+          </Container>
+        </section>
+
+        <ContactCTA />
+      </main>
+    </>
+  );
+}

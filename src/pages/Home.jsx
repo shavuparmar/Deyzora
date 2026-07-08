@@ -1,108 +1,78 @@
-import React, { Suspense } from'react';
-import SEO from'../components/SEO';
-import HeroV2 from'../components/sections/HeroV2';
+import { Helmet } from 'react-helmet-async';
+import Hero from '../components/home/Hero';
+import TrustedBy from '../components/home/TrustedBy';
+import Stats from '../components/home/Stats';
+import AboutPreview from '../components/home/AboutPreview';
+import WhyChooseUs from '../components/home/WhyChooseUs';
+import Services from '../components/home/Services';
+import FeaturedServices from '../components/home/FeaturedServices';
+import IndustriesWeServe from '../components/home/IndustriesWeServe';
+import Process from '../components/home/Process';
+import Technologies from '../components/home/Technologies';
+import FeaturedProjects from '../components/home/FeaturedProjects';
+import DemoWebsitesPreview from '../components/home/DemoWebsitesPreview';
+import Testimonials from '../components/home/Testimonials';
+import Pricing from '../components/home/Pricing';
+import FAQ from '../components/home/FAQ';
+import BlogPreviewSection from '../components/home/BlogPreviewSection';
+import CallToAction from '../components/home/CallToAction';
+import ContactFormSection from '../components/home/ContactFormSection';
+import Location from '../components/home/Location';
+import BusinessInformation from '../components/home/BusinessInformation';
+import NewsletterSection from '../components/home/NewsletterSection';
 
-// Lazy load sections below the fold for 95+ Performance
-const TechTrust = React.lazy(() => import('../components/sections/TechTrust'));
-const Services = React.lazy(() => import('../components/sections/Services'));
-const TrustedClients = React.lazy(() => import('../components/sections/TrustedClients'));
-const BentoFeatures = React.lazy(() => import('../components/sections/BentoFeatures'));
-const Stats = React.lazy(() => import('../components/sections/Stats'));
-const Process = React.lazy(() => import('../components/sections/Process'));
-const Timeline = React.lazy(() => import('../components/sections/Timeline'));
-const TechnologyStack = React.lazy(() => import('../components/sections/TechnologyStack'));
-const PortfolioShowcase = React.lazy(() => import('../components/sections/PortfolioShowcase'));
-const Pricing = React.lazy(() => import('../components/sections/Pricing'));
-const FAQ = React.lazy(() => import('../components/sections/FAQ'));
-const SocialCommunity = React.lazy(() => import('../components/sections/SocialCommunity'));
-const FinalCTA = React.lazy(() => import('../components/sections/FinalCTA'));
-const ContactForm = React.lazy(() => import('../components/sections/ContactForm'));
-
-const SectionFallback = () => <div className="min-h-[30vh] bg-[var(--color-surface)]/50 animate-pulse" />;
-
-const Home = () => {
-  const homeSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness"],
-    "name": "Deyzora Infotech",
-    "url": "https://deyzora.online/",
-    "logo": "https://deyzora.online/vite.svg",
-    "description": "Premium Web Development, SaaS Solutions, AI Solutions, and UI/UX Design.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
-    }
-  };
-
+export default function Home() {
   return (
     <>
-      <SEO 
-        title="Deyzora Infotech | Modern Digital Experiences" 
-        schema={homeSchema}
-      />
-      
-      {/* Above the fold - eager load */}
-      <HeroV2 />
-      
+      <Helmet>
+        <title>Deyzora Infotech | Premium Digital Agency</title>
+        <meta name="description" content="We build premium, world-class websites and digital products for modern startups and businesses." />
+      </Helmet>
 
-
-      <Suspense fallback={<SectionFallback />}>
-        <TrustedClients />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <TechTrust />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
-        <Services />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
-        <PortfolioShowcase />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
-        <BentoFeatures />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
+      <main className="min-h-screen">
+        {/* 1. Hero */}
+        <Hero />
+        {/* 2. Trusted Clients Marquee */}
+        <TrustedBy />
+        {/* 3. Company Statistics */}
         <Stats />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
+        {/* 4. About Us Preview */}
+        <AboutPreview />
+        {/* 5. Why Choose Us */}
+        <WhyChooseUs />
+        {/* 6. Core Services Bento Grid */}
+        <Services />
+        {/* 7. Featured Services Breakdown */}
+        <FeaturedServices />
+        {/* 8. Industries We Serve */}
+        <IndustriesWeServe />
+        {/* 9. Website Development Process */}
         <Process />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <Timeline />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <TechnologyStack />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
+        {/* 10. Technologies We Use */}
+        <Technologies />
+        {/* 11. Featured Projects Portfolio */}
+        <FeaturedProjects />
+        {/* 12. Demo Websites Hub Link */}
+        <DemoWebsitesPreview />
+        {/* 13. Testimonials */}
+        <Testimonials />
+        {/* 14. Premium Pricing */}
         <Pricing />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <SocialCommunity />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
+        {/* 15. FAQ Accordion */}
         <FAQ />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <FinalCTA />
-      </Suspense>
-      
-      <Suspense fallback={<SectionFallback />}>
-        <ContactForm />
-      </Suspense>
+        {/* 16. Blog Preview Grid */}
+        <BlogPreviewSection />
+        {/* 17. Massive Call To Action */}
+        <CallToAction />
+        {/* 18. Contact Form & Methods */}
+        <ContactFormSection />
+        {/* 19. Connect With Us / Socials */}
+        <Location />
+        {/* 20. Business Information / Metrics */}
+        <BusinessInformation />
+        {/* 21. Newsletter Opt-in */}
+        <NewsletterSection />
+      </main>
     </>
   );
-};
-
-export default Home;
+}

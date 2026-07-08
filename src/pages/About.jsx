@@ -1,104 +1,76 @@
-import { useEffect } from'react';
-import { motion } from'framer-motion';
-import { Check, Target, Compass, Users } from'lucide-react';
-import SEO from'../components/SEO';
-import { Card } from'../components/ui/Card';
-import { Section, Container } from'../components/ui/LayoutComponents';
-import TechTrust from'../components/sections/TechTrust';
-import FinalCTA from'../components/sections/FinalCTA';
-import Timeline from'../components/sections/Timeline';
-import Process from'../components/sections/Process';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import AboutBento from '../components/home/AboutBento';
+import Stats from '../components/home/Stats';
+import TrustedBy from '../components/home/TrustedBy';
+import ContactCTA from '../components/home/ContactCTA';
+import { Container } from '../components/ui/Container';
 
-const About = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Deyzora Infotech",
-    "url": "https://deyzora.online/",
-    "logo": "https://deyzora.online/vite.svg",
-    "description": "We are a team of passionate engineers, designers, and strategists dedicated to helping businesses grow through world-class digital products.",
-    "foundingDate": "2023",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-9879001603",
-      "contactType": "customer service"
-    }
-  };
-
+export default function About() {
   return (
-    <div className="pt-32 bg-[var(--color-background)] min-h-screen">
-      <SEO 
-        title="About Us | Deyzora Infotech" 
-        description="Learn about our mission to build modern digital experiences." 
-        schema={aboutSchema}
-      />
-      
-      {/* Hero */}
-      <Section className="relative pt-12 pb-24 text-center px-6">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-[var(--color-foreground)]"
-        >
-          Our <span className="text-[var(--color-accent)]">Story</span>
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-xl text-[var(--color-muted-foreground)] max-w-3xl mx-auto leading-relaxed"
-        >
-          We are a team of passionate engineers, designers, and strategists dedicated to helping businesses grow through world-class digital products. We believe in writing clean code, designing intuitive interfaces, and building relationships based on trust and transparency.
-        </motion.p>
-      </Section>
+    <>
+      <Helmet>
+        <title>About Us | Deyzora Infotech</title>
+        <meta name="description" content="Learn more about Deyzora Infotech, our mission, vision, values, and the talented team behind our premium digital experiences." />
+      </Helmet>
 
-      {/* Mission / Vision / Values */}
-      <Section className="py-12">
-        <Container>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card glass className="p-8 group hover:-translate-y-2 transition-transform duration-300">
-              <Target className="w-10 h-10 text-[var(--color-accent)] mb-6" />
-              <h3 className="text-2xl font-bold text-[var(--color-foreground)] mb-4">Our Mission</h3>
-              <p className="text-[var(--color-muted-foreground)] leading-relaxed">
-                To democratize enterprise-grade web architecture, bringing lightning-fast, highly converting digital experiences to startups and growing businesses.
-              </p>
-            </Card>
-            <Card glass className="p-8 group hover:-translate-y-2 transition-transform duration-300">
-              <Compass className="w-10 h-10 text-blue-400 mb-6" />
-              <h3 className="text-2xl font-bold text-[var(--color-foreground)] mb-4">Our Vision</h3>
-              <p className="text-[var(--color-muted-foreground)] leading-relaxed">
-                To be the most trusted digital engineering partner globally, known for our uncompromising quality and honest approach to software development.
-              </p>
-            </Card>
-            <Card glass className="p-8 group hover:-translate-y-2 transition-transform duration-300">
-              <Users className="w-10 h-10 text-pink-400 mb-6" />
-              <h3 className="text-2xl font-bold text-[var(--color-foreground)] mb-4">Our Values</h3>
-              <ul className="space-y-3 text-[var(--color-muted-foreground)]">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--color-success)]" /> Quality without compromise</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--color-success)]" /> Radical transparency</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--color-success)]" /> Continuous learning</li>
-              </ul>
-            </Card>
-          </div>
-        </Container>
-      </Section>
+      <main className="pt-24 bg-[var(--color-bg-dark)]">
+        {/* Page Hero */}
+        <section className="section-padding border-b border-[var(--color-border-subtle)]">
+          <Container className="text-center max-w-4xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins text-white mb-6 tracking-tight"
+            >
+              Building digital <br className="hidden md:block" /> excellence.
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-lg md:text-xl text-[var(--color-text-gray)] leading-relaxed max-w-2xl mx-auto"
+            >
+              We are a collective of passionate designers, developers, and strategists committed to transforming businesses through powerful digital solutions.
+            </motion.p>
+          </Container>
+        </section>
 
-      {/* Development Process from homepage */}
-      <Process />
+        <AboutBento />
+        <Stats />
 
-      {/* Technology Stack */}
-      <TechTrust />
+        {/* Core Philosophy */}
+        <section className="section-padding bg-[var(--color-bg-surface-light)] border-b border-[var(--color-border-subtle)]">
+          <Container>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden border border-[var(--color-border-subtle)]">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" 
+                  alt="Our Team"
+                  className="w-full h-[500px] object-cover"
+                />
+              </div>
+              
+              <div className="max-w-lg">
+                <h2 className="text-4xl font-bold font-poppins text-white mb-6 tracking-tight">
+                  Quality over everything.
+                </h2>
+                <div className="prose-deyzora">
+                  <p>
+                    In a world of templates and shortcuts, we choose the path of craftsmanship. Every line of code, every pixel, and every strategy is meticulously crafted to ensure your digital presence stands out.
+                  </p>
+                  <p>
+                    We don't just build websites; we build scalable digital ecosystems that adapt and grow with your business, providing a solid foundation for long-term success.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
 
-      {/* Company Timeline */}
-      <Timeline />
-
-      <FinalCTA />
-    </div>
+        <TrustedBy />
+        <ContactCTA />
+      </main>
+    </>
   );
-};
-
-export default About;
+}

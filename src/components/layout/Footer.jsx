@@ -1,189 +1,178 @@
-import { Link } from'react-router-dom';
-import { motion } from'framer-motion';
-import { Mail, Phone, Clock, Instagram, Linkedin, Send, Github, MessageSquare, MonitorPlay } from'lucide-react';
-import { SOCIAL_LINKS } from'../../data/constants';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Instagram, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
+import { Container } from '../ui/Container';
+import { Button } from '../ui/Button';
 
-const Footer = () => {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const socialIcons = [
-    { name:'Instagram', icon: <Instagram className="w-5 h-5" />, url: SOCIAL_LINKS.instagram, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: SOCIAL_LINKS.linkedin, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'Telegram', icon: <Send className="w-5 h-5" />, url: SOCIAL_LINKS.telegram, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'Discord', icon: <MonitorPlay className="w-5 h-5" />, url: SOCIAL_LINKS.discord, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'GitHub', icon: <Github className="w-5 h-5" />, url: SOCIAL_LINKS.github, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'Email', icon: <Mail className="w-5 h-5" />, url: SOCIAL_LINKS.email, hoverColor:'hover:text-[var(--color-accent)]' },
-    { name:'WhatsApp', icon: <MessageSquare className="w-5 h-5" />, url: SOCIAL_LINKS.whatsapp, hoverColor:'hover:text-[var(--color-accent)]' }
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Demo Websites', path: '/demo-websites' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const servicesLinks = [
+    { name: 'Website Development', path: '/services/website-development' },
+    { name: 'WordPress Development', path: '/services/wordpress-development' },
+    { name: 'Graphic Design', path: '/services/graphic-design' },
+    { name: 'Logo Design', path: '/services/logo-design' }
+  ];
+  
+  const legalLinks = [
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms & Conditions', path: '/terms-conditions' },
+    { name: 'Refund Policy', path: '/refund-policy' },
+    { name: 'Cancellation Policy', path: '/cancellation-policy' },
+    { name: 'Shipping Policy', path: '/shipping-policy' },
+    { name: 'Cookie Policy', path: '/cookie-policy' },
+    { name: 'Disclaimer', path: '/disclaimer' },
+    { name: 'Accessibility', path: '/accessibility' },
+    { name: 'DMCA', path: '/dmca-policy' },
+    { name: 'Copyright', path: '/copyright-policy' },
+    { name: 'SLA', path: '/sla' },
+    { name: 'Acceptable Use', path: '/acceptable-use-policy' }
   ];
 
   return (
-    <footer className="relative bg-[var(--color-surface)] pt-24 pb-8 overflow-hidden border-t border-[var(--color-border)]">
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-[var(--color-accent)]/5 blur-[120px] rounded-full mix-blend-screen" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* 5-Column Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-          
-          {/* Column 1 - Company */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-6 group inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded p-1">
-              <div className="w-8 h-8 rounded-full bg-[var(--color-foreground)] flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                <span className="text-[var(--color-background)] font-black text-xl leading-none pt-0.5">D</span>
-              </div>
-              <span className="text-xl font-bold text-[var(--color-foreground)] tracking-tight">Deyzora Infotech</span>
-            </Link>
-            <p className="text-[var(--color-muted-foreground)] text-sm mb-6 leading-relaxed">
-              Build Modern Digital Experiences.
+    <footer className="bg-[var(--color-bg-dark)] border-t border-[var(--color-border-subtle)] pt-24 pb-12">
+      <Container>
+        {/* Top CTA Glass Card */}
+        <div className="glass-card rounded-3xl p-10 md:p-16 mb-24 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="max-w-xl text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins text-white mb-4 tracking-tight">
+              Ready to elevate your digital presence?
+            </h2>
+            <p className="text-[var(--color-text-gray)] text-lg leading-relaxed">
+              Partner with Deyzora Infotech to build high-performance products that drive growth.
             </p>
-            <ul className="space-y-4">
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+            <Button to="/lets-talk" variant="primary" size="lg" className="group w-full sm:w-auto">
+              Get Started
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <a 
+              href="https://wa.me/919879009603"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-4 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold text-sm hover:bg-[#25D366]/20 transition-colors border border-[#25D366]/20 w-full sm:w-auto"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+
+        {/* Main Footer Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-4 flex flex-col">
+            <Link to="/" className="inline-block mb-8">
+              <span className="text-3xl font-bold font-poppins text-white tracking-tight">
+                Deyzora<span className="text-[var(--color-primary)]">.</span>
+              </span>
+            </Link>
+            <p className="text-[var(--color-text-gray)] mb-8 text-sm leading-relaxed pr-8">
+              We engineer high-performance digital products and premium brand identities for modern businesses and startups globally.
+            </p>
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://instagram.com/deyzorainfotech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full glass-card flex items-center justify-center text-[var(--color-text-gray)] hover:text-white hover:border-[var(--color-primary)] transition-all"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://linkedin.com/company/deyzorainfotech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full glass-card flex items-center justify-center text-[var(--color-text-gray)] hover:text-white hover:border-[#0A66C2] transition-all"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Links Columns */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest">Company</h4>
+            <ul className="flex flex-col gap-4">
+              {navLinks.map(link => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-3">
+            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest">Services</h4>
+            <ul className="flex flex-col gap-4">
+              {servicesLinks.map(link => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div className="lg:col-span-3">
+            <h4 className="text-white font-bold mb-8 text-sm uppercase tracking-widest">Contact</h4>
+            <ul className="flex flex-col gap-6">
               <li>
-                <a href={SOCIAL_LINKS.email} className="flex items-center gap-3 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded">
-                  <Mail className="w-4 h-4 shrink-0" />
+                <a href="mailto:deyzorainfotech@gmail.com" className="flex items-center gap-4 text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium group">
+                  <span className="w-10 h-10 rounded-lg glass-card flex items-center justify-center group-hover:border-[var(--color-primary)] transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </span>
                   deyzorainfotech@gmail.com
                 </a>
               </li>
               <li>
-                <a href={SOCIAL_LINKS.whatsapp} className="flex items-center gap-3 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-success)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded">
-                  <Phone className="w-4 h-4 shrink-0" />
-                  +91 9879001603
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-[var(--color-muted-foreground)]">
-                <Clock className="w-4 h-4 shrink-0" />
-                <span>Monday – Saturday<br/>10:00 AM – 7:00 PM</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 2 - Services */}
-          <div>
-            <h4 className="text-[var(--color-foreground)] font-bold mb-6 tracking-wide">Services</h4>
-            <ul className="space-y-3">
-              {[
-                { n:'Website Design', p:'/services/web-design' },
-                { n:'Website Development', p:'/services/web-development' },
-                { n:'React.js Development', p:'/services/react-development' },
-                { n:'Node.js Backend', p:'/services/nodejs-development' },
-                { n:'Database Engineering', p:'/services/database' },
-                { n:'WordPress Development', p:'/services/wordpress-development' },
-                { n:'Poster & Graphic Design', p:'/services/poster-design' },
-                { n:'UI/UX Design', p:'/services/ui-ux-design' },
-              ].map(link => (
-                <li key={link.n}>
-                  <Link to={link.p} className="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded px-1 -mx-1">
-                    {link.n}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3 - Company */}
-          <div>
-            <h4 className="text-[var(--color-foreground)] font-bold mb-6 tracking-wide">Company</h4>
-            <ul className="space-y-3">
-              {[
-                { n:'Home', p:'/' },
-                { n:'About Us', p:'/about' },
-                { n:'Services', p:'/services/web-development' },
-                { n:'Portfolio', p:'/portfolio' },
-                { n:'Pricing', p:'/pricing' },
-                { n:'Special Offers', p:'/special-offers' },
-                { n:'Let\'s Talk', p:'/lets-talk' },
-                { n:'Contact', p:'/contact' },
-              ].map(link => (
-                <li key={link.n}>
-                  <Link to={link.p} className="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded px-1 -mx-1">
-                    {link.n}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4 - Resources */}
-          <div>
-            <h4 className="text-[var(--color-foreground)] font-bold mb-6 tracking-wide">Resources</h4>
-            <ul className="space-y-3">
-              {[
-                { n:'Our Process', p:'/about' },
-                { n:'Technologies', p:'/about' },
-                { n:'Project Inquiry', p:'/lets-talk' },
-                { n:'Client Reviews', p:'/' },
-                { n:'Sitemap', p:'/sitemap' },
-              ].map(link => (
-                <li key={link.n}>
-                  <Link to={link.p} className="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded px-1 -mx-1">
-                    {link.n}
-                  </Link>
-                </li>
-              ))}
-              <li><span className="text-sm text-[var(--color-muted-foreground)]/50 cursor-not-allowed">Blog (Coming Soon)</span></li>
-              <li><span className="text-sm text-[var(--color-muted-foreground)]/50 cursor-not-allowed">Support (Coming Soon)</span></li>
-              <li><span className="text-sm text-[var(--color-muted-foreground)]/50 cursor-not-allowed">Careers (Coming Soon)</span></li>
-            </ul>
-          </div>
-
-          {/* Column 5 - Connect */}
-          <div>
-            <h4 className="text-[var(--color-foreground)] font-bold mb-6 tracking-wide">Connect</h4>
-            <div className="flex flex-wrap gap-4">
-              {socialIcons.map((social) => (
-                <a 
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-10 h-10 rounded-full bg-[var(--color-background)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-muted-foreground)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] ${social.hoverColor} hover:scale-110 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]`}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                  
-                  {/* Tooltip */}
-                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-[var(--color-surface)] backdrop-blur-md text-[var(--color-foreground)] text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-[var(--color-border)]">
-                    {social.name}
+                <a href="tel:+919879009603" className="flex items-center gap-4 text-[var(--color-text-gray)] hover:text-white transition-colors text-sm font-medium group">
+                  <span className="w-10 h-10 rounded-lg glass-card flex items-center justify-center group-hover:border-[var(--color-primary)] transition-colors">
+                    <Phone className="w-4 h-4" />
                   </span>
+                  +91 9879009603
                 </a>
-              ))}
-            </div>
+              </li>
+            </ul>
           </div>
-          
+
         </div>
 
-        {/* Footer Bottom - Legal Links */}
-        <div className="pt-8 border-t border-[var(--color-border)] flex flex-col lg:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-[var(--color-muted-foreground)]">
-            &copy; {currentYear} Deyzora Infotech. All Rights Reserved.
-          </p>
-          
-          <div className="flex flex-wrap items-center justify-center lg:justify-end gap-x-4 gap-y-2">
-            {[
-              { n:'Privacy Policy', p:'/privacy-policy' },
-              { n:'Terms & Conditions', p:'/terms-and-conditions' },
-              { n:'Refund Policy', p:'/refund-policy' },
-              { n:'Cancellation Policy', p:'/cancellation-policy' },
-              { n:'Shipping & Delivery Policy', p:'/shipping-policy' },
-              { n:'Cookie Policy', p:'/cookie-policy' },
-              { n:'Disclaimer', p:'/disclaimer' },
-              { n:'Accessibility Statement', p:'/accessibility' },
-              { n:'Security Policy', p:'/security-policy' },
-            ].map(link => (
+        {/* Bottom Legal & Copyright */}
+        <div className="pt-8 border-t border-[var(--color-border-subtle)] flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-3">
+            {legalLinks.map(link => (
               <Link 
-                key={link.n} 
-                to={link.p}
-                className="text-xs text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded px-1 -mx-1"
+                key={link.name} 
+                to={link.path} 
+                className="text-xs text-[var(--color-text-gray)] hover:text-white transition-colors"
               >
-                {link.n}
+                {link.name}
               </Link>
             ))}
           </div>
+          
+          <p className="text-xs font-medium text-[var(--color-text-gray)] tracking-wide shrink-0">
+            &copy; {currentYear} Deyzora Infotech. All Rights Reserved.
+          </p>
         </div>
-      </div>
+
+      </Container>
     </footer>
   );
-};
-
-export default Footer;
+}
