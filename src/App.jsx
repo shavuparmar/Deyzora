@@ -3,45 +3,43 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Lenis from 'lenis';
 
 import Layout from './components/layout/Layout';
+import SplashScreen from './components/layout/SplashScreen';
 
-// Eagerly loaded for performance
+// Core pages
 import Home from './pages/Home';
 import About from './pages/About';
 import ContactPage from './pages/ContactPage';
-import LetsTalk from './pages/LetsTalk';
-import ServicesPage from './pages/ServicesPage';
-import ServiceDetails from './pages/ServiceDetails';
 
 // Lazy loaded pages
+const ServicesPage = lazy(() => import('./pages/services/ServicesPage'));
+const ServiceDetails = lazy(() => import('./pages/services/ServiceDetails'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
 const BlogList = lazy(() => import('./pages/BlogList'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const OffersPage = lazy(() => import('./pages/OffersPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const DemoWebsites = lazy(() => import('./pages/DemoWebsites'));
 
-// Legal
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const TermsConditions = lazy(() => import('./pages/TermsConditions'));
-const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
-const CancellationPolicy = lazy(() => import('./pages/CancellationPolicy'));
-const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
-const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
-const Disclaimer = lazy(() => import('./pages/Disclaimer'));
-const Accessibility = lazy(() => import('./pages/Accessibility'));
-const SecurityPolicy = lazy(() => import('./pages/SecurityPolicy'));
-const DMCAPolicy = lazy(() => import('./pages/DMCAPolicy'));
-const CopyrightPolicy = lazy(() => import('./pages/CopyrightPolicy'));
-const AcceptableUsePolicy = lazy(() => import('./pages/AcceptableUsePolicy'));
-const SLA = lazy(() => import('./pages/SLA'));
-const IntellectualProperty = lazy(() => import('./pages/IntellectualProperty'));
-const GrievancePolicy = lazy(() => import('./pages/GrievancePolicy'));
-const Sitemap = lazy(() => import('./pages/Sitemap'));
+// Legal pages
+const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('./pages/legal/TermsConditions'));
+const RefundPolicy = lazy(() => import('./pages/legal/RefundPolicy'));
+const CookiePolicy = lazy(() => import('./pages/legal/CookiePolicy'));
+const Disclaimer = lazy(() => import('./pages/legal/Disclaimer'));
+const Accessibility = lazy(() => import('./pages/legal/Accessibility'));
+const Sitemap = lazy(() => import('./pages/legal/Sitemap'));
+
+// Status pages
+const ComingSoon = lazy(() => import('./pages/ComingSoon'));
+const Maintenance = lazy(() => import('./pages/Maintenance'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
+const ServerError = lazy(() => import('./pages/ServerError'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const PageLoader = () => (
-  <div className="min-h-screen pt-32 flex items-center justify-center bg-[var(--color-bg-dark)]">
-    <div className="w-10 h-10 border-[3px] border-[var(--color-primary)] border-t-transparent rounded-full animate-spin"></div>
+  <div className="min-h-screen pt-32 flex items-center justify-center bg-black">
+    <div className="w-10 h-10 border-[3px] border-[#0070F3] border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
@@ -59,6 +57,8 @@ function App() {
       infinite: false,
     });
 
+    window.__lenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -67,55 +67,58 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
+      window.__lenis = null;
       lenis.destroy();
     };
   }, []);
 
   return (
-    <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            
-            <Route path="services" element={<ServicesPage />} />
-            <Route path="services/:slug" element={<ServiceDetails />} />
-            
-            <Route path="blog" element={<BlogList />} />
-            <Route path="blog/:slug" element={<BlogPost />} />
-            
-            <Route path="portfolio" element={<PortfolioPage />} />
-            <Route path="projects" element={<Navigate to="/portfolio" replace />} />
-            <Route path="pricing" element={<PricingPage />} />
-            <Route path="demo-websites" element={<DemoWebsites />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="lets-talk" element={<LetsTalk />} />
-            
-            {/* Legal */}
-            <Route path="privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="terms-and-conditions" element={<TermsConditions />} />
-            <Route path="refund-policy" element={<RefundPolicy />} />
-            <Route path="cancellation-policy" element={<CancellationPolicy />} />
-            <Route path="shipping-policy" element={<ShippingPolicy />} />
-            <Route path="cookie-policy" element={<CookiePolicy />} />
-            <Route path="disclaimer" element={<Disclaimer />} />
-            <Route path="accessibility" element={<Accessibility />} />
-            <Route path="security-policy" element={<SecurityPolicy />} />
-            <Route path="dmca-policy" element={<DMCAPolicy />} />
-            <Route path="copyright-policy" element={<CopyrightPolicy />} />
-            <Route path="acceptable-use-policy" element={<AcceptableUsePolicy />} />
-            <Route path="sla" element={<SLA />} />
-            <Route path="intellectual-property" element={<IntellectualProperty />} />
-            <Route path="grievance-policy" element={<GrievancePolicy />} />
-            <Route path="sitemap" element={<Sitemap />} />
-            <Route path="thank-you" element={<ThankYou />} />
+    <>
+      <SplashScreen />
+      <BrowserRouter>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              
+              {/* Service Architecture */}
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="services/:slug" element={<ServiceDetails />} />
+              
+              {/* Main App Routes */}
+              <Route path="blog" element={<BlogList />} />
+              <Route path="blog/:slug" element={<BlogPost />} />
+              <Route path="portfolio" element={<PortfolioPage />} />
+              <Route path="projects" element={<Navigate to="/portfolio" replace />} />
+              <Route path="pricing" element={<PricingPage />} />
+              <Route path="offers" element={<OffersPage />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="demo-websites" element={<DemoWebsites />} />
+              <Route path="contact" element={<ContactPage />} />
+              
+              {/* Legal Policies */}
+              <Route path="privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="terms-and-conditions" element={<TermsConditions />} />
+              <Route path="terms-conditions" element={<Navigate to="/terms-and-conditions" replace />} />
+              <Route path="refund-policy" element={<RefundPolicy />} />
+              <Route path="cookie-policy" element={<CookiePolicy />} />
+              <Route path="disclaimer" element={<Disclaimer />} />
+              <Route path="accessibility" element={<Accessibility />} />
+              <Route path="sitemap" element={<Sitemap />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+              {/* Status Pages */}
+              <Route path="coming-soon" element={<ComingSoon />} />
+              <Route path="maintenance" element={<Maintenance />} />
+              <Route path="thank-you" element={<ThankYou />} />
+              <Route path="500" element={<ServerError />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </>
   );
 }
 

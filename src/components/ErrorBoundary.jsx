@@ -28,7 +28,7 @@ class ErrorBoundary extends Component {
               <RefreshCcw className="w-10 h-10 text-red-500" />
             </div>
             
-            <h1 className="text-4xl font-bold font-poppins text-white mb-6 tracking-tight">
+            <h1 className="text-4xl font-bold font-display text-white mb-6 tracking-tight">
               Something went wrong
             </h1>
             

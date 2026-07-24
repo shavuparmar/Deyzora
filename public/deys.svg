@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 233.333px;
+        fill: #ff01ae;
+        font-family: Jokerman;
+      }
+
+      .cls-2 {
+        fill: #1b0698;
+      }
+
+      .cls-3 {
+        font-size: 150px;
+        fill: #fff;
+        font-family: "Lucida Bright";
+      }
+    </style>
+  </defs>
+  <text id="Deyzora" class="cls-1" x="124" y="253">D<tspan class="cls-2">eyzora</tspan></text>
+  <text id="Infotech" class="cls-3" x="579.46" y="382.234">Infotech</text>
+</svg>

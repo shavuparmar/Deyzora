@@ -6,16 +6,23 @@ import dotenv from 'dotenv';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load env variables
 dotenv.config();
 
-const SITE_URL = process.env.VITE_SITE_URL || 'https://deyzorainfotech.com';
+const SITE_URL = process.env.VITE_SITE_URL || 'https://deyzora.com';
 
 const serviceIds = [
   'website-development',
-  'wordpress-development',
-  'graphic-design',
-  'logo-design'
+  'landing-page-development',
+  'business-website',
+  'portfolio-website',
+  'ecommerce-development',
+  'web-application',
+  'admin-dashboard',
+  'ui-ux-design',
+  'website-redesign',
+  'website-maintenance',
+  'seo-ready-website',
+  'performance-optimization'
 ];
 
 const blogIds = [
@@ -35,22 +42,12 @@ const staticRoutes = [
   '/pricing',
   '/blog',
   '/contact',
-  '/lets-talk',
   '/privacy-policy',
-  '/terms-conditions',
+  '/terms-and-conditions',
   '/refund-policy',
-  '/cancellation-policy',
-  '/shipping-policy',
   '/cookie-policy',
   '/disclaimer',
   '/accessibility',
-  '/security-policy',
-  '/dmca-policy',
-  '/copyright-policy',
-  '/acceptable-use-policy',
-  '/sla',
-  '/intellectual-property',
-  '/grievance-policy',
   '/sitemap'
 ];
 
@@ -84,7 +81,6 @@ console.log('✅ sitemap.xml generated successfully!');
 
 const robotsContent = `User-agent: *
 Allow: /
-Disallow: /admin
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

@@ -47,7 +47,7 @@ export default function Sitemap() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-2xl font-bold font-poppins text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Main Pages</h2>
+          <h2 className="text-2xl font-bold font-display text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Main Pages</h2>
           <ul className="space-y-4">
             {mainPages.map(link => (
               <li key={link.to}>
@@ -60,7 +60,7 @@ export default function Sitemap() {
         </div>
         
         <div>
-          <h2 className="text-2xl font-bold font-poppins text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Services</h2>
+          <h2 className="text-2xl font-bold font-display text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Services</h2>
           <ul className="space-y-4">
             <li>
               <Link to="/services" className="text-[var(--color-text-gray)] hover:text-white transition-colors font-medium">
@@ -78,7 +78,7 @@ export default function Sitemap() {
         </div>
 
         <div className="md:col-span-2 mt-8">
-          <h2 className="text-2xl font-bold font-poppins text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Legal & Policies</h2>
+          <h2 className="text-2xl font-bold font-display text-white mb-6 border-b border-[var(--color-border-subtle)] pb-4">Legal & Policies</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {legalPages.map(link => (
               <li key={link.to}>

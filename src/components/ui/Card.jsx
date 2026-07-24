@@ -1,23 +1,27 @@
-import { twMerge } from 'tailwind-merge';
-import { clsx } from 'clsx';
-import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
+import { cn } from '../../utils/cn';
 
-function cn(...inputs) {
-  return twMerge(clsx(inputs));
+export function Card({ 
+  children, 
+  className,
+  hover = true,
+  glass = true,
+  ...props 
+}) {
+  return (
+    <motion.div
+      whileHover={hover ? { y: -5 } : {}}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className={cn(
+        "relative rounded-3xl overflow-hidden border border-[var(--color-border-subtle)]",
+        glass ? "glass-card" : "bg-[var(--color-bg-surface)]",
+        className
+      )}
+      {...props}
+    >
+      <div className="relative z-10 p-6 md:p-8 h-full flex flex-col">
+        {children}
+      </div>
+    </motion.div>
+  );
 }
-
-const Card = forwardRef(({ className, children, ...props }, ref) => (
-  <div 
-    ref={ref}
-    className={cn(
-      "bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] rounded-2xl overflow-hidden",
-      className
-    )} 
-    {...props}
-  >
-    {children}
-  </div>
-));
-Card.displayName = "Card";
-
-export { Card };
