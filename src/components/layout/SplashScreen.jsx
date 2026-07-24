@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoSvg from '/deyzora-Logo.svg';
+import logoSvg from '/deys.svg';
 
 export default function SplashScreen() {
   const [show, setShow] = useState(false);
